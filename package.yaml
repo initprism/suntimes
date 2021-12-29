@@ -1,0 +1,48 @@
+name:                suntimes
+version:             0.1.0.0
+github:              "initprism/suntimes"
+license:             BSD3
+author:              "initprism"
+maintainer:          "initprism@google.com"
+copyright:           "2021 initprism"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+dependencies:
+- base >= 4.7 && < 5
+- mtl
+- text
+- time
+- bytestring
+- optparse-applicative
+- aeson
+- req
+- exceptions
+- http-client
+
+library:
+  source-dirs: src
+
+executables:
+  suntimes-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - suntimes
+
+tests:
+  suntimes-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - suntimes
